@@ -24,14 +24,19 @@ func parseCsvLines(lines [][]string) []problem {
 	return problemSlice
 }
 
+func errMsg(msg string) {
+	fmt.Printf(msg)
+	os.Exit(1)
+}
+
 func main() {
 	csvFileName := flag.String("csv", "problems.csv", "a csv file in the format of 'question,answer'")
+
 	flag.Parse()
 
 	file, err := os.Open(*csvFileName)
 	if err != nil {
-		fmt.Printf("Failed to open the CSV file: %s\n", *csvFileName)
-		os.Exit(1)
+		errMsg(fmt.Sprintf("Failed to open the csv file: %s\n", *csvFileName))
 	}
 
 	fmt.Printf("Successfully opened the CSV file: %s\n", *csvFileName)
@@ -39,8 +44,7 @@ func main() {
 
 	lines, err := r.ReadAll()
 	if err != nil {
-		fmt.Println("Failed to parse the provided CSV file.")
-		os.Exit(1)
+		errMsg("Failed to parse the provided CSV file.")
 	}
 
 	correctCounter := 0
