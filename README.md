@@ -31,3 +31,19 @@ A super simple server that checks if a URL exists for a given key, and if it doe
 3. Run `go run urlShortener.go` to start the server.
 4. Visit `http://localhost:8080` in your browser.
 5. Visit `http://localhost:8080/github` in your browser to see the redirect.
+
+## Count Lines
+A simple program that counts the number of lines in a file, or project. If the starting directory contains other directories, the program will run recursively until all file lines are counted. 
+
+### Packages
+- [bufio](https://golang.org/pkg/bufio/)
+- [flag](https://golang.org/pkg/flag/)
+- [fmt](https://golang.org/pkg/fmt/)
+- [io/ioutil](https://golang.org/pkg/io/ioutil/)
+- [os](https://golang.org/pkg/os/)
+
+### Usage
+1. Clone the repository.
+2. Change into the `countLines` directory.
+3. Build the executable: `go build countLines.go`
+4. Run the executable: `./countLines --dir=some/directory`. If you do not specify a directory, the program will default to the current directory.
